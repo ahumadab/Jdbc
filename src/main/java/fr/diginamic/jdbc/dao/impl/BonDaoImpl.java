@@ -149,4 +149,27 @@ public class BonDaoImpl implements BonDao {
 		return bon;
 	}
 
+	@Override
+	public Boolean deleteOne(Bon bon) throws Exception 
+	{
+		try
+		{
+			java.sql.PreparedStatement ps = this.connection.prepareStatement(RequetesBon.DELETE_ONE.getRequete(), Statement.RETURN_GENERATED_KEYS);
+			ps.setInt(1, bon.getId());
+			Integer res = ps.executeUpdate();
+			if (res == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		catch (Exception e)
+		{
+			return false;
+		}		
+	}
+
 }

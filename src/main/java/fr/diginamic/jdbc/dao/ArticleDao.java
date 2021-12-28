@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import fr.diginamic.jdbc.entites.Article;
+import fr.diginamic.jdbc.entites.Compo;
 import fr.diginamic.jdbc.entites.Fournisseur;
 
 public interface ArticleDao 
@@ -24,4 +25,5 @@ public interface ArticleDao
 	
 	Article updateFournisseur(Article article, Fournisseur newfournisseur) throws SQLException;
 	
+	Boolean deleteOne(Article article) throws Exception;
 }

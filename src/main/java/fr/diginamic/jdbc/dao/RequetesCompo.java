@@ -32,7 +32,8 @@ public enum RequetesCompo
 			+ "WHERE COMPO.ID_BON = :idBon"),
 	UPDATE_ARTICLE("UPDATE COMPO SET ID_ART = ? WHERE id = ?"),
 	UPDATE_BON("UPDATE COMPO SET ID_BON = ? WHERE id = ?"),
-	UPDATE_QUANTITY("UPDATE COMPO SET QTE = ? WHERE id = ?");
+	UPDATE_QUANTITY("UPDATE COMPO SET QTE = ? WHERE id = ?"),
+	DELETE_ONE("DELETE FROM COMPO where id = ?");
 	
 	private String requete;
 	

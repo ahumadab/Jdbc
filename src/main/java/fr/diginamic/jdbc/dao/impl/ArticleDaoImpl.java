@@ -147,4 +147,28 @@ public class ArticleDaoImpl implements ArticleDao {
 		return article;
 	}
 
+	@Override
+	public Boolean deleteOne(Article article) throws Exception 
+	{
+		try
+		{
+			java.sql.PreparedStatement ps = this.connection.prepareStatement(RequetesArticle.DELETE_ONE.getRequete(), Statement.RETURN_GENERATED_KEYS);
+			ps.setInt(1, article.getId());
+			Integer res = ps.executeUpdate();
+			if (res == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		catch (Exception e)
+		{
+			return false;
+		}
+		
+	}
+
 }

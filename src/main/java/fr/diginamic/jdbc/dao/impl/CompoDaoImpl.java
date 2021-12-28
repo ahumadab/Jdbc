@@ -71,7 +71,7 @@ public class CompoDaoImpl implements CompoDao
 			Article article = new Article(articleId, articleRef, articleRef, articlePrice, fournisseur);
 			
 			Integer bonId = rs.getInt("bonId");
-			Integer bonNumero = rs.getInt("bonNum");
+			Integer bonNumero = rs.getInt("bonNumero");
 			Date bonDateCmde = rs.getDate("bonDateCmde");
 			Integer bonDelai = rs.getInt("bonDelai");
 			Bon bon = new Bon(bonId, bonNumero, bonDateCmde, bonDelai, fournisseur);
@@ -102,7 +102,7 @@ public class CompoDaoImpl implements CompoDao
 			Article article = new Article(articleId, articleRef, articleRef, articlePrice, fournisseur);
 			
 			Integer bonId = rs.getInt("bonId");
-			Integer bonNumero = rs.getInt("bonNum");
+			Integer bonNumero = rs.getInt("bonNumero");
 			Date bonDateCmde = rs.getDate("bonDateCmde");
 			Integer bonDelai = rs.getInt("bonDelai");
 			Bon bon = new Bon(bonId, bonNumero, bonDateCmde, bonDelai, fournisseur);
@@ -125,7 +125,7 @@ public class CompoDaoImpl implements CompoDao
 			Integer compoQuantity = rs.getInt("qte");
 
 			Integer bonId = rs.getInt("bonId");
-			Integer bonNumero = rs.getInt("bonNum");
+			Integer bonNumero = rs.getInt("bonNumero");
 			Date bonDateCmde = rs.getDate("bonDateCmde");
 			Integer bonDelai = rs.getInt("bonDelai");
 			Bon bon = new Bon(bonId, bonNumero, bonDateCmde, bonDelai, article.getFournisseur());
@@ -190,6 +190,31 @@ public class CompoDaoImpl implements CompoDao
 		ps.executeUpdate();
 		compo.setQuantity(newQuantity);
 		return compo;
+	}
+
+	@Override
+	public Boolean deleteOne(Compo compo) throws Exception 
+	{
+		try
+		{
+			java.sql.PreparedStatement ps = this.connection.prepareStatement(RequetesCompo.DELETE_ONE.getRequete(), Statement.RETURN_GENERATED_KEYS);
+			ps.setInt(1, compo.getId());
+			Integer res = ps.executeUpdate();
+			if (res == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		catch (Exception e)
+		{
+			return false;
+		}
+		
+		
 	}
 
 }

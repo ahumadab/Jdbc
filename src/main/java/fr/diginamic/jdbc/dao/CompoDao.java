@@ -24,4 +24,6 @@ public interface CompoDao
 	Compo updateBon(Compo compo, Bon newBon) throws SQLException;
 	
 	Compo updateQuantity(Compo compo, Integer newQuantity) throws SQLException;
+	
+	Boolean deleteOne(Compo compo) throws Exception;
 }

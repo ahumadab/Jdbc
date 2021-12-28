@@ -24,4 +24,6 @@ public interface BonDao
 	Bon updateDelay(Bon bon, Integer newNum) throws SQLException;
 	
 	Bon updateFournisseur(Bon bon, Fournisseur newfournisseur) throws SQLException;
+
+	Boolean deleteOne(Bon bon) throws Exception;
 }

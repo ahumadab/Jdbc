@@ -84,5 +84,28 @@ public class FournisseurDaoImpl implements FournisseurDao {
 		return fournisseur;
 	}
 
+	@Override
+	public Boolean deleteOne(Fournisseur fournisseur) throws Exception 
+	{
+		try
+		{
+			java.sql.PreparedStatement ps = this.connection.prepareStatement(RequetesFournisseur.DELETE_ONE.getRequete(), Statement.RETURN_GENERATED_KEYS);
+			ps.setInt(1, fournisseur.getId());
+			Integer res = ps.executeUpdate();
+			if (res == 1)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		catch (Exception e)
+		{
+			return false;
+		}
+	}
+
 	
 }

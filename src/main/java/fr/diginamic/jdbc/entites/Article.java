@@ -8,6 +8,13 @@ public class Article
 	private Double price;
 	private Fournisseur fournisseur;
 	
+	/**
+	 * 
+	 * @param ref
+	 * @param designation
+	 * @param price
+	 * @param fournisseur
+	 */
 	public Article(String ref, String designation, Double price, Fournisseur fournisseur) 
 	{
 		super();

@@ -15,4 +15,5 @@ public interface FournisseurDao
 	
 	Fournisseur updateName(Fournisseur fournisseur, String newName) throws SQLException;
 	
+	Boolean deleteOne(Fournisseur fournisseur) throws Exception;
 }
