@@ -17,8 +17,19 @@ public interface MenuService
 	void updateFournisseur(Fournisseur fournisseur);
 	void updateFournisseur();
 	void updateFournisseurNom(Fournisseur fournisseur);
+	void deleteFournisseur();
+	void deleteFournisseur2(Boolean success);
 	
-	void afficherArticle();
+	void afficherArticles(Fournisseur fournisseur);
+	void creerArticle(Fournisseur fournisseur);
+	void updateArticle(Fournisseur fournisseur);
+	void updateFournisseurArticleById(Fournisseur fournisseur);
+	
+	void articleMenu();
+	void addArticle();
+	void updateArticle();
+	
+	void bonMenu();
 	
 	void afficherBon();
 	

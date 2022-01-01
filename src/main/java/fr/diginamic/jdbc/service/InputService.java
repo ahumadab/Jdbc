@@ -16,4 +16,15 @@ public interface InputService
 	void updateFournisseur(MenuService menuService);
 	void updateFournisseur2(MenuService menuService, Fournisseur fournisseur);
 	void updateFournisseurName(MenuService menuService, Fournisseur fournisseur);
+	void deleteFournisseur(MenuService menuService);
+	void deleteFournisseur2(MenuService menuService);
+	void listArticleByFournisseur(MenuService menuService, Fournisseur fournisseur);
+	void creerArticle(MenuService menuService, Fournisseur fournisseur);
+	
+	void updateArticle(MenuService menuService, Fournisseur fournisseur);
+
+	void articleMenu(MenuService menuService);
+	void creerArticle(MenuService menuService);
+	void updateArticle(MenuService menuService);
+	
 }

@@ -67,4 +67,18 @@ public class FournisseurServiceImpl implements FournisseurService
 		}
 	}
 
+	@Override
+	public Boolean supprimerFournisseur(Fournisseur fournisseur) 
+	{
+		try
+		{
+			return this.fournisseurDao.deleteOne(fournisseur);
+		}
+		catch (Exception e)
+		{
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 }

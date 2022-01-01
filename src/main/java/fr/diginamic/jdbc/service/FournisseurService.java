@@ -19,5 +19,6 @@ public interface FournisseurService
 	Fournisseur recupererFournisseurParId(Integer id);
 	
 	Fournisseur modifierNomFournisseur(Fournisseur fournisseur, String name);
-	
+
+	Boolean supprimerFournisseur(Fournisseur fournisseur);
 }
