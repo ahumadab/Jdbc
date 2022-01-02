@@ -1,5 +1,9 @@
 package fr.diginamic.jdbc.service;
 
+import java.util.List;
+
+import fr.diginamic.jdbc.entites.Article;
+import fr.diginamic.jdbc.entites.Bon;
 import fr.diginamic.jdbc.entites.Fournisseur;
 
 public interface MenuService 
@@ -27,9 +31,25 @@ public interface MenuService
 	
 	void articleMenu();
 	void addArticle();
+	void getAllArticles();
+	void getAllArticles(List<Article> articles);
+	void getAllFournisseurArticles();
+	void getOneArticle();
 	void updateArticle();
+	void updateArticle(Article article);
+	void deleteArticle();
+	void deleteArticle(Boolean isSuccess);
 	
 	void bonMenu();
+	void addBon();
+	void getAllBons();
+	void getAllBons(List<Bon> bons);
+	void getAllFournisseurBons();
+	void getOneBon();
+	void updateBon();
+	void updateBon(Bon bon);
+	void deleteBon();
+	void deleteBon(Boolean isSuccess);
 	
 	void afficherBon();
 	

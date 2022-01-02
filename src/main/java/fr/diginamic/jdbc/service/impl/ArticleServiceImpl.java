@@ -155,5 +155,20 @@ public class ArticleServiceImpl implements ArticleService
 		return this.modifierFournisseur(this.recupererArticleParId(id), fournisseur);
 	}
 
+	@Override
+	public Boolean supprimerArticle(Article article) 
+	{
+		try 
+		{
+			return this.articleDao.deleteOne(article);
+		}
+		catch (Exception e)
+		{
+			return false;
+		}
+		
+	}
+
+	
 	
 }

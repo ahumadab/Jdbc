@@ -1,30 +1,49 @@
 package fr.diginamic.jdbc.service;
 
+import java.util.List;
+
+import fr.diginamic.jdbc.entites.Article;
+import fr.diginamic.jdbc.entites.Bon;
 import fr.diginamic.jdbc.entites.Fournisseur;
 
 public interface InputService 
 {
-	void mainMenu(MenuService menuService);
+	void mainMenu();
 	
-	void fournisseurMenu(MenuService menuService);
-	void listFournisseur(MenuService menuService);
-	void addFournisseur(MenuService menuService);
-	void addFournisseur2(MenuService menuService);
-	void oneFournisseur(MenuService menuService);
-	void oneFournisseurFound(MenuService menuService, Fournisseur founisseur);
-	void oneFournisseurNotFound(MenuService menuService);
-	void updateFournisseur(MenuService menuService);
-	void updateFournisseur2(MenuService menuService, Fournisseur fournisseur);
-	void updateFournisseurName(MenuService menuService, Fournisseur fournisseur);
-	void deleteFournisseur(MenuService menuService);
-	void deleteFournisseur2(MenuService menuService);
-	void listArticleByFournisseur(MenuService menuService, Fournisseur fournisseur);
-	void creerArticle(MenuService menuService, Fournisseur fournisseur);
+	void fournisseurMenu();
+	void listFournisseur();
+	void addFournisseur();
+	void addFournisseur2();
+	void oneFournisseur();
+	void oneFournisseurFound(Fournisseur founisseur);
+	void oneFournisseurNotFound();
+	void updateFournisseur();
+	void updateFournisseur2(Fournisseur fournisseur);
+	void updateFournisseurName(Fournisseur fournisseur);
+	void deleteFournisseur();
+	void deleteFournisseur2();
+	void listArticleByFournisseur(Fournisseur fournisseur);
+	void creerArticle(Fournisseur fournisseur);
 	
-	void updateArticle(MenuService menuService, Fournisseur fournisseur);
+	void updateArticle(Fournisseur fournisseur);
 
-	void articleMenu(MenuService menuService);
-	void creerArticle(MenuService menuService);
-	void updateArticle(MenuService menuService);
+	void articleMenu();
+	void creerArticle();
+	void getAllArticles();
+	void getAllFournisseurArticles();
+	void getOneArticle();
+	void updateArticle();
+	void updateArticle2(Article article);
+	void deleteArticle();
+	void deleteArticle2();
 	
+	void bonMenu();
+	void creerBon();
+	void getOneBon();
+	void getAllBons();
+	void getAllFournisseurBons();
+	void updateBon();
+	void updateBon(Bon bon);
+	void deleteBon();
+	void deleteBon2();
 }

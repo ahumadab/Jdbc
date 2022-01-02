@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import fr.diginamic.jdbc.entites.Article;
+import fr.diginamic.jdbc.entites.Bon;
 import fr.diginamic.jdbc.entites.Fournisseur;
 import fr.diginamic.jdbc.service.ArticleService;
 import fr.diginamic.jdbc.service.DisplayService;
@@ -14,7 +15,7 @@ import fr.diginamic.jdbc.service.MenuService;
 public class MenuServiceImpl implements MenuService 
 {
 	
-	private InputService inputService = new InputServiceImpl();
+	private InputService inputService = new InputServiceImpl(this);
 	private DisplayService displayService = new DisplayServiceImpl();
 	private ArticleService articleService = new ArticleServiceImpl();
 	
@@ -31,54 +32,54 @@ public class MenuServiceImpl implements MenuService
 	public void mainMenu() 
 	{
 		displayService.mainMenu();
-		inputService.mainMenu(this);
+		inputService.mainMenu();
 	}
 
 	@Override
 	public void fournisseurMenu()
 	{
 		displayService.fournisseurMenu();
-		inputService.fournisseurMenu(this);
+		inputService.fournisseurMenu();
 	}
 	
 	public void addfournisseur()
 	{
 		displayService.addFournisseur();
-		inputService.addFournisseur(this);
+		inputService.addFournisseur();
 	}
 	
 	public void addfournisseur2(Fournisseur fournisseur)
 	{
 		displayService.addFournisseur2(fournisseur);
-		inputService.addFournisseur2(this);
+		inputService.addFournisseur2();
 	}
 
 	@Override
 	public void fournisseurList() 
 	{
 		displayService.listFournisseur();
-		inputService.listFournisseur(this);
+		inputService.listFournisseur();
 	}
 
 	@Override
 	public void oneFournisseur() 
 	{
 		displayService.askForIdFournisseur();
-		inputService.oneFournisseur(this);
+		inputService.oneFournisseur();
 	}
 
 	@Override
 	public void oneFournisseurFound(Fournisseur fournisseur) 
 	{
 		displayService.oneFournisseurFound(fournisseur);
-		inputService.oneFournisseurFound(this, fournisseur);
+		inputService.oneFournisseurFound(fournisseur);
 	}
 
 	@Override
 	public void oneFournisseurNotFound() 
 	{
 		displayService.oneFournisseurNotFound();
-		inputService.oneFournisseurNotFound(this);
+		inputService.oneFournisseurNotFound();
 	}
 	
 
@@ -86,28 +87,28 @@ public class MenuServiceImpl implements MenuService
 	public void updateFournisseur() 
 	{	
 		displayService.askForIdFournisseur();
-		inputService.updateFournisseur(this);
+		inputService.updateFournisseur();
 	}
 	
 	@Override
 	public void updateFournisseur(Fournisseur fournisseur) 
 	{	
 		displayService.updateFournisseur(fournisseur);
-		inputService.updateFournisseur2(this, fournisseur);
+		inputService.updateFournisseur2(fournisseur);
 	}
 
 	@Override
 	public void updateFournisseurNom(Fournisseur fournisseur) 
 	{
 		displayService.updateFournisseur2();
-		inputService.updateFournisseurName(this, fournisseur);
+		inputService.updateFournisseurName(fournisseur);
 	}
 
 	@Override
 	public void deleteFournisseur() 
 	{
 		displayService.deleteFournisseur();
-		inputService.deleteFournisseur(this);
+		inputService.deleteFournisseur();
 	}
 	
 	
@@ -115,7 +116,7 @@ public class MenuServiceImpl implements MenuService
 	public void deleteFournisseur2(Boolean success) 
 	{
 		displayService.deleteFournisseur2(success);
-		inputService.deleteFournisseur2(this);
+		inputService.deleteFournisseur2();
 	}
 
 	
@@ -124,7 +125,7 @@ public class MenuServiceImpl implements MenuService
 	public void afficherArticles(Fournisseur fournisseur)
 	{
 		displayService.listArticle(fournisseur);
-		inputService.listArticleByFournisseur(this, fournisseur);
+		inputService.listArticleByFournisseur(fournisseur);
 	}
 	
 
@@ -132,14 +133,14 @@ public class MenuServiceImpl implements MenuService
 	public void creerArticle(Fournisseur fournisseur) 
 	{
 		displayService.creerArticle(fournisseur);
-		inputService.creerArticle(this, fournisseur);
+		inputService.creerArticle(fournisseur);
 	}
 
 	@Override
 	public void updateArticle(Fournisseur fournisseur) 
 	{
 		displayService.updateArticle(fournisseur);
-		inputService.updateArticle(this, fournisseur);
+		inputService.updateArticle(fournisseur);
 	}
 
 	@Override
@@ -153,7 +154,7 @@ public class MenuServiceImpl implements MenuService
 	public void articleMenu() 
 	{
 		displayService.articleMenu();
-		inputService.articleMenu(this);
+		inputService.articleMenu();
 	}
 
 
@@ -161,23 +162,144 @@ public class MenuServiceImpl implements MenuService
 	public void addArticle() 
 	{
 		displayService.creerArticle();
-		inputService.creerArticle(this);
+		inputService.creerArticle();
 	}
 
+	@Override
+	public void getAllArticles()
+	{
+		displayService.getAllArticle();
+		inputService.getAllArticles();
+	}
+
+	@Override
+	public void getAllFournisseurArticles() 
+	{
+		displayService.askForIdFournisseur();
+		inputService.getAllFournisseurArticles();		
+	}
+
+	@Override
+	public void getAllArticles(List<Article> articles) 
+	{
+		displayService.getAllArticle(articles);
+		inputService.getAllArticles();
+	}
+
+	@Override
+	public void getOneArticle() 
+	{
+		displayService.askForArticleId();
+		inputService.getOneArticle();
+	}
 
 	@Override
 	public void updateArticle() 
 	{
 		displayService.updateArticle();
-		inputService.updateArticle(this);
+		inputService.updateArticle();
+	}
+
+	@Override
+	public void updateArticle(Article article) 
+	{
+		displayService.updateArticle(article);
+		inputService.updateArticle2(article);
+	}
+
+
+	@Override
+	public void deleteArticle() 
+	{
+		displayService.deleteArticle();
+		inputService.deleteArticle();
+	}
+
+	@Override
+	public void deleteArticle(Boolean isSuccess) 
+	{
+		displayService.deleteArticle(isSuccess);
+		inputService.deleteArticle2();
 	}
 
 
 	@Override
 	public void bonMenu() 
 	{
-		// TODO Auto-generated method stub
-		
+		displayService.bonMenu();
+		inputService.bonMenu();
+	}
+
+
+	@Override
+	public void addBon() 
+	{
+		displayService.creerBon();
+		inputService.creerArticle();
+	}
+
+
+	@Override
+	public void getAllBons() 
+	{
+		displayService.getAllArticle();
+		inputService.getAllArticles();
+	}
+
+
+	@Override
+	public void getAllBons(List<Bon> bons) 
+	{
+		displayService.getAllBons(bons);
+		inputService.getAllBons();
+	}
+
+
+	@Override
+	public void getAllFournisseurBons() 
+	{
+		displayService.askForIdFournisseur();
+		inputService.getAllFournisseurBons();
+	}
+
+
+	@Override
+	public void getOneBon() 
+	{
+		displayService.askForBonId();
+		inputService.getOneBon();
+	}
+
+
+	@Override
+	public void updateBon() 
+	{
+		displayService.updateBon();
+		inputService.updateBon();		
+	}
+
+
+	@Override
+	public void updateBon(Bon bon)
+	{
+		displayService.updateBon(bon);
+		inputService.updateBon(bon);		
+	}
+
+
+	@Override
+	public void deleteBon()
+	{
+		displayService.deleteBon();
+		inputService.deleteBon();
+	}
+
+
+	@Override
+	public void deleteBon(Boolean isSuccess) 
+	{
+		displayService.deleteArticle(isSuccess);
+		inputService.deleteBon2();
 	}
 
 

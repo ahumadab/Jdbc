@@ -33,4 +33,5 @@ public interface ArticleService
 	Article modifierFournisseur(Article article, Fournisseur fournisseur);
 	Article modifierFournisseur(Integer id, Fournisseur fournisseur);
 	
+	Boolean supprimerArticle(Article article);
 }
